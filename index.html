@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Girly Pop 🌸</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --pink-50: #fff0f7;
+      --pink-100: #ffd6ec;
+      --pink-200: #ffadd9;
+      --pink-400: #f472b6;
+      --pink-500: #ec4899;
+      --pink-600: #db2777;
+      --pink-700: #be185d;
+      --pink-900: #500724;
+      --rose-50: #fff1f2;
+      --rose-100: #ffe4e6;
+      --mauve: #f5d0fe;
+      --lavender: #ede9fe;
+      --cream: #fdf4ff;
+      --white: #ffffff;
+      --text-dark: #1e0a13;
+      --text-mid: #6b2142;
+      --text-light: #9d4b6e;
+      --text-muted: #c98aab;
+      --border: rgba(219, 39, 119, 0.12);
+      --border-mid: rgba(219, 39, 119, 0.25);
+      --shadow-sm: 0 2px 8px rgba(219, 39, 119, 0.08);
+      --shadow-md: 0 8px 32px rgba(219, 39, 119, 0.12);
+      --shadow-lg: 0 20px 60px rgba(219, 39, 119, 0.15);
+      --radius: 20px;
+      --radius-sm: 12px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--text-dark);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Ambient background blobs */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -200px; left: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(244,114,182,0.15) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -200px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(167,139,250,0.12) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      position: relative;
+      z-index: 10;
+      background: linear-gradient(135deg, #db2777 0%, #be185d 40%, #9d174d 100%);
+      padding: 40px 24px 60px;
+      text-align: center;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; right: -40px;
+      width: 350px; height: 350px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+    .header-inner { position: relative; z-index: 2; }
+    .header-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.9);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 7vw, 4rem);
+      font-weight: 700;
+      color: white;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+    }
+    header h1 span { color: #fde68a; }
+    header p {
+      margin-top: 12px;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.75);
+      font-weight: 300;
+    }
+    .petal { position: absolute; font-size: 1.4rem; animation: float 6s ease-in-out infinite; opacity: 0.6; }
+    .petal:nth-child(1) { top: 20%; left: 8%; animation-delay: 0s; }
+    .petal:nth-child(2) { top: 60%; left: 4%; animation-delay: 1.5s; }
+    .petal:nth-child(3) { top: 15%; right: 6%; animation-delay: 0.8s; }
+    .petal:nth-child(4) { top: 70%; right: 8%; animation-delay: 2.2s; }
+    @keyframes float { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-12px) rotate(5deg); } }
+
+    /* ─── NAV TABS ─── */
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(253,244,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      margin-top: -20px;
+      border-radius: 20px 20px 0 0;
+    }
+    nav {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 0 16px;
+    }
+    nav::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 16px 18px;
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.25s;
+      white-space: nowrap;
+    }
+    .tab-btn.active {
+      color: var(--pink-600);
+      border-bottom-color: var(--pink-600);
+    }
+    .tab-btn:hover:not(.active) { color: var(--text-light); }
+    .tab-icon { font-size: 16px; }
+
+    /* ─── MAIN ─── */
+    main {
+      position: relative;
+      z-index: 5;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 16px 60px;
+    }
+
+    /* ─── SECTIONS ─── */
+    .section { display: none; animation: fadeIn 0.35s ease; }
+    .section.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+    .section-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    /* ─── CARD ─── */
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+    }
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--pink-700);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* ─── FORM ELEMENTS ─── */
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-light);
+      margin-bottom: 8px;
+      letter-spacing: 0.3px;
+    }
+    input[type="date"],
+    input[type="number"],
+    input[type="time"],
+    input[type="text"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1.5px solid var(--border-mid);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--text-dark);
+      background: var(--pink-50);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      appearance: none;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--pink-500);
+      box-shadow: 0 0 0 3px rgba(236,72,153,0.1);
+      background: var(--white);
+    }
+    textarea { height: 130px; resize: none; line-height: 1.6; }
+
+    .field { margin-bottom: 18px; }
+
+    /* ─── BUTTONS ─── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 28px;
+      background: linear-gradient(135deg, var(--pink-500), var(--pink-700));
+      color: white;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(219,39,119,0.3);
+      letter-spacing: 0.2px;
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(219,39,119,0.35); }
+    .btn:active { transform: translateY(0); }
+    .btn-full { width: 100%; }
+    .btn-outline {
+      background: transparent;
+      color: var(--pink-600);
+      border: 1.5px solid var(--pink-400);
+      box-shadow: none;
+    }
+    .btn-outline:hover { background: var(--pink-50); box-shadow: none; }
+
+    /* ─── RESULT BOX ─── */
+    .result-box {
+      margin-top: 20px;
+      padding: 20px;
+      background: linear-gradient(135deg, var(--rose-50), var(--pink-50));
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius-sm);
+      display: none;
+    }
+    .result-box.show { display: block; animation: fadeIn 0.3s ease; }
+    .result-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .result-row:last-child { border-bottom: none; }
+    .result-icon { font-size: 1.4rem; }
+    .result-label { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+    .result-value { font-size: 15px; font-weight: 600; color: var(--pink-700); }
+
+    /* ─── PHASE PILL ─── */
+    .phase-badge {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      background: var(--mauve);
+      color: #7c3aed;
+      margin-top: 4px;
+    }
+
+    /* ─── GRID ─── */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    /* ─── MOOD GRID ─── */
+    .mood-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .mood-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 16px 8px;
+      background: var(--pink-50);
+      border: 2px solid transparent;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: var(--font-body);
+    }
+    .mood-btn:hover { background: var(--rose-100); border-color: var(--pink-300, var(--pink-200)); transform: translateY(-2px); }
+    .mood-btn.selected { border-color: var(--pink-500); background: var(--white); box-shadow: 0 4px 12px rgba(236,72,153,0.15); }
+    .mood-emoji { font-size: 1.8rem; }
+    .mood-label { font-size: 11px; font-weight: 500; color: var(--text-light); }
+    .mood-history { margin-top: 20px; }
+    .mood-entry {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: var(--pink-50);
+      border-radius: var(--radius-sm);
+      margin-bottom: 8px;
+    }
+    .mood-entry-left { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+    .mood-entry-time { font-size: 12px; color: var(--text-muted); }
+
+    /* ─── ALARM ─── */
+    .alarm-status {
+      margin-top: 16px;
+      padding: 14px 18px;
+      background: var(--pink-50);
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      color: var(--text-mid);
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+    .alarm-status.show { display: flex; }
+    .alarm-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--pink-500); animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.8); } }
+
+    /* ─── CALENDAR ─── */
+    .cal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .cal-month {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+    .cal-nav {
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--pink-50);
+      border: 1.5px solid var(--border-mid);
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      color: var(--pink-600);
+      transition: all 0.2s;
+    }
+    .cal-nav:hover { background: var(--pink-500); color: white; }
+    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+    .cal-day-name {
+      text-align: center;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 4px 0 10px;
+      letter-spacing: 0.5px;
+    }
+    .cal-day {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.15s;
+      color: var(--text-dark);
+      font-weight: 400;
+    }
+    .cal-day:hover { background: var(--pink-50); }
+    .cal-day.empty { pointer-events: none; }
+    .cal-day.today { background: var(--pink-500); color: white; font-weight: 600; }
+    .cal-day.period { background: var(--rose-100); color: var(--pink-700); font-weight: 600; position: relative; }
+    .cal-day.period::after { content: ''; position: absolute; bottom: 4px; width: 4px; height: 4px; border-radius: 50%; background: var(--pink-500); }
+    .cal-day.ovulation { background: var(--lavender); color: #7c3aed; font-weight: 600; }
+    .cal-day.fertile { background: rgba(167,139,250,0.15); }
+    .cal-legend {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-light);
+    }
+    .legend-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+    }
+
+    /* ─── TIPS ─── */
+    .tip-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px;
+      background: var(--pink-50);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      margin-bottom: 12px;
+      transition: transform 0.2s;
+    }
+    .tip-card:hover { transform: translateX(4px); }
+    .tip-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+    .tip-text { font-size: 14px; color: var(--text-mid); line-height: 1.5; }
+    .tip-title { font-weight: 600; margin-bottom: 4px; color: var(--text-dark); }
+
+    /* ─── TOAST ─── */
+    .toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: linear-gradient(135deg, var(--pink-600), var(--pink-700));
+      color: white;
+      padding: 14px 24px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: var(--shadow-lg);
+      z-index: 9999;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      white-space: nowrap;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* ─── STATS ROW ─── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .stat-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 18px 16px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .stat-value {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--pink-700);
+    }
+    .stat-label { font-size: 11px; color: var(--text-muted); font-weight: 500; margin-top: 4px; letter-spacing: 0.3px; }
+
+    /* ─── NOTES TAGS ─── */
+    .note-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .note-tag {
+      padding: 5px 14px;
+      background: var(--pink-50);
+      border: 1.5px solid var(--border-mid);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--pink-700);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .note-tag:hover { background: var(--pink-500); color: white; border-color: var(--pink-500); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+      color: var(--text-muted);
+      position: relative;
+      z-index: 5;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 480px) {
+      .mood-grid { grid-template-columns: repeat(5, 1fr); gap: 6px; }
+      .mood-btn { padding: 12px 4px; }
+      .mood-emoji { font-size: 1.5rem; }
+      .mood-label { display: none; }
+      .stats-row { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+      .stat-value { font-size: 1.3rem; }
+      .card { padding: 20px; }
+    }
+    @media (max-width: 360px) {
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <span class="petal">🌸</span>
+    <span class="petal">✨</span>
+    <span class="petal">🌷</span>
+    <span class="petal">💕</span>
+    <div class="header-inner">
+      <div class="header-badge">Women's Wellness</div>
+      <h1>Girly <span>Pop</span></h1>
+      <p>Your smart, beautiful wellness companion</p>
+    </div>
+  </header>
+
+  <div class="nav-wrap">
+    <nav>
+      <button class="tab-btn active" onclick="showTab('tracker')" data-tab="tracker">
+        <span class="tab-icon">🌺</span> Cycle
+      </button>
+      <button class="tab-btn" onclick="showTab('mood')" data-tab="mood">
+        <span class="tab-icon">✨</span> Mood
+      </button>
+      <button class="tab-btn" onclick="showTab('calendar')" data-tab="calendar">
+        <span class="tab-icon">🗓️</span> Calendar
+      </button>
+      <button class="tab-btn" onclick="showTab('notes')" data-tab="notes">
+        <span class="tab-icon">📝</span> Notes
+      </button>
+      <button class="tab-btn" onclick="showTab('alarm')" data-tab="alarm">
+        <span class="tab-icon">⏰</span> Reminder
+      </button>
+      <button class="tab-btn" onclick="showTab('tips')" data-tab="tips">
+        <span class="tab-icon">💖</span> Tips
+      </button>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- TRACKER -->
+    <div class="section active" id="section-tracker">
+      <div class="section-title">Cycle Tracker</div>
+      <div class="section-sub">Track your menstrual cycle and predict your next period</div>
+
+      <div id="stats-row" class="stats-row" style="display:none">
+        <div class="stat-card">
+          <div class="stat-value" id="stat-days">—</div>
+          <div class="stat-label">Days Until Period</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-cycle">—</div>
+          <div class="stat-label">Cycle Length</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-phase">—</div>
+          <div class="stat-label">Current Phase</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🌸 Period Details</div>
+        <div class="grid-2">
+          <div class="field">
+            <label>Last Period Start Date</label>
+            <input type="date" id="lastPeriod" />
+          </div>
+          <div class="field">
+            <label>Cycle Length (days)</label>
+            <input type="number" id="cycleLength" placeholder="28" min="21" max="45" />
+          </div>
+        </div>
+        <button class="btn btn-full" onclick="calculateCycle()">✨ Calculate My Cycle</button>
+
+        <div class="result-box" id="cycleResult">
+          <div class="result-row">
+            <span class="result-icon">🌸</span>
+            <div>
+              <div class="result-label">Next Period</div>
+              <div class="result-value" id="res-next"></div>
+            </div>
+          </div>
+          <div class="result-row">
+            <span class="result-icon">🌟</span>
+            <div>
+              <div class="result-label">Ovulation Day</div>
+              <div class="result-value" id="res-ovul"></div>
+            </div>
+          </div>
+          <div class="result-row">
+            <span class="result-icon">💕</span>
+            <div>
+              <div class="result-label">Fertile Window</div>
+              <div class="result-value" id="res-fertile"></div>
+            </div>
+          </div>
+          <div class="result-row">
+            <span class="result-icon">🔮</span>
+            <div>
+              <div class="result-label">Current Phase</div>
+              <div class="result-value" id="res-phase"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOOD -->
+    <div class="section" id="section-mood">
+      <div class="section-title">Mood Tracker</div>
+      <div class="section-sub">How are you feeling today?</div>
+
+      <div class="card">
+        <div class="card-title">✨ Today's Mood</div>
+        <div class="mood-grid">
+          <button class="mood-btn" onclick="selectMood(this, 'Happy')" data-mood="Happy">
+            <span class="mood-emoji">😊</span>
+            <span class="mood-label">Happy</span>
+          </button>
+          <button class="mood-btn" onclick="selectMood(this, 'Excited')" data-mood="Excited">
+            <span class="mood-emoji">🤩</span>
+            <span class="mood-label">Excited</span>
+          </button>
+          <button class="mood-btn" onclick="selectMood(this, 'Calm')" data-mood="Calm">
+            <span class="mood-emoji">😌</span>
+            <span class="mood-label">Calm</span>
+          </button>
+          <button class="mood-btn" onclick="selectMood(this, 'Tired')" data-mood="Tired">
+            <span class="mood-emoji">😴</span>
+            <span class="mood-label">Tired</span>
+          </button>
+          <button class="mood-btn" onclick="selectMood(this, 'Sad')" data-mood="Sad">
+            <span class="mood-emoji">😢</span>
+            <span class="mood-label">Sad</span>
+          </button>
+          <button class="mood-btn" onclick="selectMood(this, 'Anxious')" data-mood="Anxious">
+            <span class="mood-emoji">😰</span>
+            <span class="mood-label">Anxious</span>
+          </button>
+          <button class="mood-btn" onclick="selectMood(this, 'Angry')" data-mood="Angry">
+            <span class="mood-emoji">😡</span>
+            <span class="mood-label">Angry</span>
+          </button>
+          <button class="mood-btn" onclick="selectMood(this, 'Bloated')" data-mood="Bloated">
+            <span class="mood-emoji">🤒</span>
+            <span class="mood-label">Bloated</span>
+          </button>
+          <button class="mood-btn" onclick="selectMood(this, 'Loved')" data-mood="Loved">
+            <span class="mood-emoji">🥰</span>
+            <span class="mood-label">Loved</span>
+          </button>
+          <button class="mood-btn" onclick="selectMood(this, 'Motivated')" data-mood="Motivated">
+            <span class="mood-emoji">💪</span>
+            <span class="mood-label">Motivated</span>
+          </button>
+        </div>
+        <button class="btn btn-full" onclick="saveMood()">💾 Save Mood</button>
+
+        <div class="mood-history" id="moodHistory"></div>
+      </div>
+    </div>
+
+    <!-- CALENDAR -->
+    <div class="section" id="section-calendar">
+      <div class="section-title">Calendar</div>
+      <div class="section-sub">Your cycle at a glance</div>
+
+      <div class="card">
+        <div class="cal-header">
+          <button class="cal-nav" onclick="changeMonth(-1)">‹</button>
+          <div class="cal-month" id="calMonthLabel"></div>
+          <button class="cal-nav" onclick="changeMonth(1)">›</button>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+        <div class="cal-legend">
+          <div class="legend-item">
+            <div class="legend-dot" style="background:var(--pink-500)"></div>
+            Today
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:var(--rose-100);border:1.5px solid var(--pink-400,#f472b6)"></div>
+            Period
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:var(--lavender)"></div>
+            Ovulation
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:rgba(167,139,250,0.2);border:1px solid rgba(167,139,250,0.4)"></div>
+            Fertile
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NOTES -->
+    <div class="section" id="section-notes">
+      <div class="section-title">Personal Notes</div>
+      <div class="section-sub">Write your thoughts, symptoms, or reminders</div>
+
+      <div class="card">
+        <div class="card-title">📝 My Notes</div>
+        <div class="note-tags" id="noteTags">
+          <button class="note-tag" onclick="insertTag('Feeling great today!')">✨ Great day</button>
+          <button class="note-tag" onclick="insertTag('Cramps today. ')">😣 Cramps</button>
+          <button class="note-tag" onclick="insertTag('Headache. ')">🤕 Headache</button>
+          <button class="note-tag" onclick="insertTag('Low energy today. ')">⚡ Low energy</button>
+          <button class="note-tag" onclick="insertTag('Period started today. ')">🌸 Period start</button>
+          <button class="note-tag" onclick="insertTag('Mood swings. ')">🎭 Mood swings</button>
+        </div>
+        <div class="field">
+          <textarea id="notes" placeholder="Write your thoughts, symptoms, or how you're feeling..."></textarea>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <button class="btn btn-full" onclick="saveNotes()">💾 Save Notes</button>
+          <button class="btn btn-outline" style="flex:0 0 auto;padding:13px 20px;" onclick="clearNotes()">🗑</button>
+        </div>
+        <div id="noteTimestamp" style="font-size:12px;color:var(--text-muted);margin-top:12px;display:none"></div>
+      </div>
+    </div>
+
+    <!-- ALARM -->
+    <div class="section" id="section-alarm">
+      <div class="section-title">Reminders</div>
+      <div class="section-sub">Set daily reminders for your wellness routines</div>
+
+      <div class="card">
+        <div class="card-title">⏰ Set Reminder</div>
+        <div class="field">
+          <label>Reminder Time</label>
+          <input type="time" id="alarmTime" />
+        </div>
+        <div class="field">
+          <label>Reminder Label (optional)</label>
+          <input type="text" id="alarmLabel" placeholder="e.g. Take vitamins, Log period…" />
+        </div>
+        <button class="btn btn-full" onclick="setAlarm()">🔔 Set Reminder</button>
+        <div class="alarm-status" id="alarmStatus">
+          <div class="alarm-dot"></div>
+          <span id="alarmText"></span>
+        </div>
+
+        <div id="alarmList" style="margin-top:20px;"></div>
+      </div>
+    </div>
+
+    <!-- TIPS -->
+    <div class="section" id="section-tips">
+      <div class="section-title">Health Tips</div>
+      <div class="section-sub">Daily wellness advice just for you</div>
+
+      <div class="tip-card">
+        <div class="tip-icon">💧</div>
+        <div class="tip-text">
+          <div class="tip-title">Stay Hydrated</div>
+          Drink 8–10 glasses of water daily. Proper hydration helps reduce bloating, ease cramps, and keep your skin glowing.
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">📅</div>
+        <div class="tip-text">
+          <div class="tip-title">Track Regularly</div>
+          Log your cycle every month for at least 3 cycles to get accurate predictions and understand your body's patterns.
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🧘‍♀️</div>
+        <div class="tip-text">
+          <div class="tip-title">Move Your Body</div>
+          Gentle movement like yoga or walking during your period can significantly reduce cramps and lift your mood.
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🥗</div>
+        <div class="tip-text">
+          <div class="tip-title">Eat Mindfully</div>
+          Iron-rich foods (spinach, lentils) help during menstruation. Magnesium (dark chocolate, nuts) eases PMS symptoms.
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">😴</div>
+        <div class="tip-text">
+          <div class="tip-title">Prioritise Sleep</div>
+          Aim for 7–9 hours. Your hormones fluctuate across your cycle — honouring your need for more rest is self-care.
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🩺</div>
+        <div class="tip-text">
+          <div class="tip-title">See a Doctor</div>
+          If you experience extremely painful periods, very irregular cycles, or unusual symptoms — always consult a healthcare professional.
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    Made with 💕 · Girly Pop © 2026
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ─── STATE ───
+    let currentTab = 'tracker';
+    let calYear, calMonth;
+    let alarmInterval = null;
+    let alarms = [];
+    let moodLog = [];
+    let selectedMoodEl = null;
+    let selectedMoodVal = '';
+    let cycleData = {};
+
+    // ─── INIT ───
+    window.onload = function () {
+      const now = new Date();
+      calYear = now.getFullYear();
+      calMonth = now.getMonth();
+
+      loadFromStorage();
+      renderCalendar();
+      renderMoodHistory();
+      renderAlarms();
+
+      if (cycleData.lastPeriod) {
+        document.getElementById('lastPeriod').value = cycleData.lastPeriod;
+        document.getElementById('cycleLength').value = cycleData.cycleLength || 28;
+        calculateCycle(true);
+      }
+
+      setInterval(checkAlarms, 30000);
+    };
+
+    function loadFromStorage() {
+      try {
+        const saved = localStorage.getItem('girlyPop');
+        if (saved) {
+          const data = JSON.parse(saved);
+          cycleData = data.cycle || {};
+          moodLog = data.moodLog || [];
+          alarms = data.alarms || [];
+          document.getElementById('notes').value = data.notes || '';
+          if (data.notes) {
+            document.getElementById('noteTimestamp').style.display = 'block';
+            document.getElementById('noteTimestamp').textContent = 'Last saved: ' + (data.noteTime || '');
+          }
+        }
+      } catch(e) {}
+    }
+
+    function saveToStorage() {
+      const data = {
+        cycle: cycleData,
+        moodLog,
+        alarms,
+        notes: document.getElementById('notes').value,
+        noteTime: new Date().toLocaleString()
+      };
+      localStorage.setItem('girlyPop', JSON.stringify(data));
+    }
+
+    // ─── TABS ───
+    function showTab(tab) {
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('section-' + tab).classList.add('active');
+      document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+      currentTab = tab;
+      if (tab === 'calendar') renderCalendar();
+    }
+
+    // ─── CYCLE TRACKER ───
+    function calculateCycle(silent) {
+      const lastPeriod = document.getElementById('lastPeriod').value;
+      const cycleLen = parseInt(document.getElementById('cycleLength').value) || 28;
+
+      if (!lastPeriod) {
+        if (!silent) showToast('Please enter your last period date 🌸');
+        return;
+      }
+
+      const last = new Date(lastPeriod);
+      const today = new Date();
+      today.setHours(0,0,0,0);
+
+      const next = new Date(last);
+      next.setDate(last.getDate() + cycleLen);
+
+      const ovul = new Date(next);
+      ovul.setDate(next.getDate() - 14);
+
+      const fertStart = new Date(ovul);
+      fertStart.setDate(ovul.getDate() - 5);
+      const fertEnd = new Date(ovul);
+      fertEnd.setDate(ovul.getDate() + 1);
+
+      const daysUntil = Math.round((next - today) / 86400000);
+
+      // Phase
+      const dayOfCycle = Math.round((today - last) / 86400000) + 1;
+      let phase = '';
+      if (dayOfCycle >= 1 && dayOfCycle <= 5) phase = '🩸 Menstrual';
+      else if (dayOfCycle <= 13) phase = '🌱 Follicular';
+      else if (dayOfCycle <= 16) phase = '🌟 Ovulation';
+      else phase = '🌙 Luteal';
+
+      document.getElementById('res-next').textContent = next.toDateString();
+      document.getElementById('res-ovul').textContent = ovul.toDateString();
+      document.getElementById('res-fertile').textContent = fertStart.toDateString() + ' – ' + fertEnd.toDateString();
+      document.getElementById('res-phase').textContent = phase;
+
+      const box = document.getElementById('cycleResult');
+      box.classList.add('show');
+
+      // Stats
+      document.getElementById('stat-days').textContent = daysUntil > 0 ? daysUntil : 'Today';
+      document.getElementById('stat-cycle').textContent = cycleLen + 'd';
+      document.getElementById('stat-phase').textContent = phase.split(' ')[1];
+      document.getElementById('stats-row').style.display = 'grid';
+
+      cycleData = { lastPeriod, cycleLength: cycleLen };
+      saveToStorage();
+
+      if (!silent) showToast('Cycle calculated! ✨');
+    }
+
+    // ─── MOOD ───
+    function selectMood(el, mood) {
+      document.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('selected'));
+      el.classList.add('selected');
+      selectedMoodEl = el;
+      selectedMoodVal = mood;
+    }
+
+    function saveMood() {
+      if (!selectedMoodVal) { showToast('Pick a mood first 💕'); return; }
+      const entry = {
+        mood: selectedMoodVal,
+        emoji: selectedMoodEl.querySelector('.mood-emoji').textContent,
+        time: new Date().toLocaleString()
+      };
+      moodLog.unshift(entry);
+      if (moodLog.length > 10) moodLog.pop();
+      saveToStorage();
+      renderMoodHistory();
+      showToast('Mood saved! ' + entry.emoji);
+      document.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('selected'));
+      selectedMoodVal = '';
+    }
+
+    function renderMoodHistory() {
+      const el = document.getElementById('moodHistory');
+      if (!moodLog.length) { el.innerHTML = ''; return; }
+      el.innerHTML = '<div style="font-size:13px;font-weight:500;color:var(--text-muted);margin:20px 0 12px;letter-spacing:0.3px;">RECENT MOODS</div>';
+      moodLog.slice(0, 5).forEach(m => {
+        el.innerHTML += `<div class="mood-entry"><div class="mood-entry-left"><span>${m.emoji}</span><span style="font-size:14px;font-weight:500">${m.mood}</span></div><div class="mood-entry-time">${m.time}</div></div>`;
+      });
+    }
+
+    // ─── NOTES ───
+    function saveNotes() {
+      saveToStorage();
+      const ts = document.getElementById('noteTimestamp');
+      ts.style.display = 'block';
+      ts.textContent = 'Last saved: ' + new Date().toLocaleString();
+      showToast('Notes saved! 💖');
+    }
+
+    function clearNotes() {
+      if (confirm('Clear all notes?')) {
+        document.getElementById('notes').value = '';
+        document.getElementById('noteTimestamp').style.display = 'none';
+        saveToStorage();
+      }
+    }
+
+    function insertTag(text) {
+      const ta = document.getElementById('notes');
+      ta.value += text;
+      ta.focus();
+    }
+
+    // ─── ALARM ───
+    function setAlarm() {
+      const time = document.getElementById('alarmTime').value;
+      const label = document.getElementById('alarmLabel').value || 'Girly Pop Reminder';
+      if (!time) { showToast('Please pick a time ⏰'); return; }
+
+      alarms.push({ time, label, id: Date.now() });
+      saveToStorage();
+      renderAlarms();
+
+      document.getElementById('alarmStatus').classList.add('show');
+      document.getElementById('alarmText').textContent = `Reminder set for ${time} — "${label}"`;
+      document.getElementById('alarmTime').value = '';
+      document.getElementById('alarmLabel').value = '';
+      showToast('Reminder set! 🔔');
+    }
+
+    function renderAlarms() {
+      const el = document.getElementById('alarmList');
+      if (!alarms.length) { el.innerHTML = ''; return; }
+      el.innerHTML = '<div style="font-size:13px;font-weight:500;color:var(--text-muted);margin-bottom:12px;letter-spacing:0.3px;">ACTIVE REMINDERS</div>';
+      alarms.forEach(a => {
+        el.innerHTML += `<div class="mood-entry"><div class="mood-entry-left"><span>🔔</span><span style="font-size:14px;font-weight:500">${a.time} — ${a.label}</span></div><button onclick="removeAlarm(${a.id})" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:18px;padding:4px;">×</button></div>`;
+      });
+    }
+
+    function removeAlarm(id) {
+      alarms = alarms.filter(a => a.id !== id);
+      saveToStorage();
+      renderAlarms();
+    }
+
+    function checkAlarms() {
+      const now = new Date();
+      const h = now.getHours().toString().padStart(2,'0');
+      const m = now.getMinutes().toString().padStart(2,'0');
+      const cur = h + ':' + m;
+      alarms.forEach(a => {
+        if (a.time === cur) {
+          showToast('⏰ ' + a.label);
+          try { new Notification('Girly Pop', { body: a.label }); } catch(e) {}
+        }
+      });
+    }
+
+    // ─── CALENDAR ───
+    function renderCalendar() {
+      const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      document.getElementById('calMonthLabel').textContent = monthNames[calMonth] + ' ' + calYear;
+
+      const today = new Date();
+      today.setHours(0,0,0,0);
+
+      // Compute cycle dates
+      let periodDates = new Set();
+      let ovulDates = new Set();
+      let fertileDates = new Set();
+
+      if (cycleData.lastPeriod) {
+        const last = new Date(cycleData.lastPeriod);
+        const cycleLen = parseInt(cycleData.cycleLength) || 28;
+        // Generate for ±3 cycles
+        for (let i = -3; i <= 3; i++) {
+          const periodStart = new Date(last);
+          periodStart.setDate(last.getDate() + i * cycleLen);
+          for (let d = 0; d < 5; d++) {
+            const dt = new Date(periodStart);
+            dt.setDate(periodStart.getDate() + d);
+            periodDates.add(dt.toDateString());
+          }
+          const next = new Date(periodStart);
+          next.setDate(periodStart.getDate() + cycleLen);
+          const ovul = new Date(next);
+          ovul.setDate(next.getDate() - 14);
+          ovulDates.add(ovul.toDateString());
+          for (let d = -5; d <= 1; d++) {
+            const dt = new Date(ovul);
+            dt.setDate(ovul.getDate() + d);
+            fertileDates.add(dt.toDateString());
+          }
+        }
+      }
+
+      const grid = document.getElementById('calGrid');
+      grid.innerHTML = '';
+
+      ['Su','Mo','Tu','We','Th','Fr','Sa'].forEach(d => {
+        const el = document.createElement('div');
+        el.className = 'cal-day-name';
+        el.textContent = d;
+        grid.appendChild(el);
+      });
+
+      const firstDay = new Date(calYear, calMonth, 1).getDay();
+      const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+
+      for (let i = 0; i < firstDay; i++) {
+        const el = document.createElement('div');
+        el.className = 'cal-day empty';
+        grid.appendChild(el);
+      }
+
+      for (let d = 1; d <= daysInMonth; d++) {
+        const date = new Date(calYear, calMonth, d);
+        const ds = date.toDateString();
+        const el = document.createElement('div');
+        el.className = 'cal-day';
+        el.textContent = d;
+        if (date.getTime() === today.getTime()) el.classList.add('today');
+        else if (ovulDates.has(ds)) el.classList.add('ovulation');
+        else if (periodDates.has(ds)) el.classList.add('period');
+        else if (fertileDates.has(ds)) el.classList.add('fertile');
+        grid.appendChild(el);
+      }
+    }
+
+    function changeMonth(dir) {
+      calMonth += dir;
+      if (calMonth > 11) { calMonth = 0; calYear++; }
+      if (calMonth < 0) { calMonth = 11; calYear--; }
+      renderCalendar();
+    }
+
+    // ─── TOAST ───
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2800);
+    }
+  </script>
+</body>
+</html>
